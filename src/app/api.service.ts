@@ -13,6 +13,7 @@ export class ApiService {
 
   //Get all  Data
   getAllData(columnn: string, order: string):Observable<any>{
+    console.log(`${this.api}/all/${columnn}/${order}`);
     return this.http.get(`${this.api}/all/${columnn}/${order}`);
   }
 
