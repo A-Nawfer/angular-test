@@ -1,0 +1,12 @@
+.form-container{
+  margin: 10px;
+  width: 60vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  align-content: stretch;
+  align-items: stretch;
+  justify-content: space-around;
+}

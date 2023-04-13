@@ -1,0 +1,19 @@
+<h1 mat-dialog-title *ngIf="data.trigger === 'delete'">Delete Record</h1>
+<h1 mat-dialog-title *ngIf="data.trigger === 'create'">Create Record</h1>
+<div mat-dialog-content *ngIf="data.trigger === 'delete'">
+  Would you like to delete this record?
+</div>
+<div mat-dialog-content *ngIf="data.trigger === 'create'">
+  Would you like to create this record?
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>
+  <button mat-button mat-dialog-close cdkFocusInitial *ngIf="data.trigger === 'delete'"
+  (click)="confirmDelete()">
+    Yes
+  </button>
+  <button mat-button mat-dialog-close cdkFocusInitial *ngIf="data.trigger === 'create'"
+  (click)="confirmCreate()">
+    Yes
+  </button>
+</div>

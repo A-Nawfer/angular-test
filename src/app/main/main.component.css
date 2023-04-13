@@ -1,0 +1,80 @@
+.container{
+  width: 100vw;
+}
+
+.btn-add{
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-bottom: 0;
+}
+
+.table{
+  overflow: auto;
+  width: max-content;
+  margin: 2%;
+  margin-top: 1%;
+  width: 96%;
+}
+
+.card mat-card-content form{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  align-content: stretch;
+  justify-content: space-around;
+}
+
+::ng-deep .mat-column-price .mat-sort-header-container {
+  display:flex;
+  justify-content:right;
+}
+
+::ng-deep .mat-column-lastUpdated .mat-sort-header-container {
+  display:flex;
+  justify-content:right;
+}
+
+.mat-column-id{
+  width: 7%;
+}
+
+.mat-column-itemName{
+  width: 14%;
+  padding-left: 1%;
+}
+
+.mat-column-description{
+  width: 17%;
+  padding-left: 1%;
+}
+
+.mat-column-category{
+  width: 9%;
+  padding-left: 1%;
+}
+
+.mat-column-subcategory{
+  width: 9%;
+  padding-left: 1%;
+}
+
+.mat-column-price{
+  text-align: right;
+  width: 9%;
+  padding-left: 1%;
+}
+
+.mat-column-lastUpdated {
+  text-align: right;
+  width: 14%;
+  padding-left: 1%;
+  height: max-content;
+}
+
+.mat-column-actions {
+  text-align: center;
+  width: 14%;
+  padding-left: 1%;
+  height: max-content;
+}

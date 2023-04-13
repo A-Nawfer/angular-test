@@ -1,0 +1,150 @@
+<div>
+  <form #form="ngForm" (ngSubmit)="form.valid && submit()" autocomplete="off"
+  class="form-container">
+      <mat-form-field>
+        <mat-label for="itemName">Item Name</mat-label>
+        <input matInput
+        type="text"
+        class="itemName"
+        id="itemName"
+        name="itemName"
+        value="{{testdata.itemName}}"
+        [(ngModel)]="testdata.itemName"
+        #itemName="ngModel"
+        required
+        pattern="^.{1,50}$"/>
+
+        <mat-error *ngIf="itemName?.hasError('pattern') &&
+        !itemName?.hasError('required')">
+          Please enter a valid Item Name
+        </mat-error>
+        <mat-error *ngIf="itemName?.hasError('required')">
+          Item Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="description">Description</mat-label>
+        <input matInput
+        type="text"
+        class="description"
+        id="description"
+        name="description"
+        value="{{testdata.description}}"
+        [(ngModel)]="testdata.description"
+        #description="ngModel"
+        required
+        pattern="^.{1,255}$">
+
+        <mat-error *ngIf="description?.hasError('pattern') &&
+        !description?.hasError('required')">
+          Please enter a valid Description
+        </mat-error>
+        <mat-error *ngIf="description?.hasError('required')">
+          Description is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="category">Category</mat-label>
+        <mat-select [(ngModel)]="testdata.category" name="food" #category="ngModel"
+        required
+        pattern="^.{1,50}$"
+        class="category"
+        id="category"
+        name="category"
+        placeholder="Category">
+          <mat-option *ngFor="let category of Category"
+          [value]="category.value" >
+            {{category.value}}
+          </mat-option>
+        </mat-select>
+
+        <mat-error *ngIf="category?.hasError('pattern') &&
+        !category?.hasError('required')">
+          Please enter a valid Category
+        </mat-error>
+        <mat-error *ngIf="category?.hasError('required')">
+          Category is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="subcategory">Subcategory</mat-label>
+        <input type="text"
+        class="subcategory"
+        id="subcategory"
+        name="subcategory"
+        value="{{testdata.subcategory}}"
+        [(ngModel)]="testdata.subcategory"
+        required
+        pattern="^.{1,50}$"
+        placeholder="Pick one"
+        aria-label="Subcategory"
+        matInput
+        [formControl]="myControl"
+        [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+
+        <mat-error *ngIf="myControl?.hasError('pattern') &&
+        !myControl?.hasError('required')">
+          Please enter a valid Subcategory
+        </mat-error>
+        <mat-error *ngIf="myControl?.hasError('required')">
+          Subcategory is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="price">Price (LKR)</mat-label>
+        <input matInput
+        type="number"
+        class="price"
+        id="price"
+        name="price"
+        value="{{testdata.price}}"
+        [(ngModel)]="testdata.price"
+        #price="ngModel"
+        required
+        pattern="^\d{0,12}(\.\d{1,2})?$">
+
+        <mat-error *ngIf="price?.hasError('pattern') &&
+        !price?.hasError('required')">
+          Please enter a valid Price
+        </mat-error>
+        <mat-error *ngIf="price?.hasError('required')">
+          Price is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="lastUpdated">Last Updated</mat-label>
+        <input matInput
+        type="date"
+        class="lastUpdated"
+        id="lastUpdated"
+        name="lastUpdated"
+        value="{{testdata.lastUpdated}}"
+        [(ngModel)]="testdata.lastUpdated"
+        #lastUpdated="ngModel"
+        required>
+
+        <mat-error *ngIf="lastUpdated?.hasError('required')">
+          Last Updated is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary"
+      class="btnSubmit"
+      type="submit">Submit</button>
+
+      <button mat-raised-button color="warn"
+      class="btnReset"
+      type="button"
+      (click)="resetForm()">Reset</button>
+  </form>
+</div>
